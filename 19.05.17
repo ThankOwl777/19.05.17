@@ -44,3 +44,27 @@ Error
 
 6. class, interface, or enum expected
 -> {}의 갯수 확인
+
+
+--------------------
+
+class Helloworld {
+  public static void main(String[] args){
+    System.out.println("Hello world");
+  }
+}
+
+-> Helloworld.java save
+
+-> javac Helloworld.java // compile
+
+-> check Helloworld.class create
+
+-> java Helloworld // execution
+
+-> Hello world
+
+-> ???
+
+-> profit!
+
