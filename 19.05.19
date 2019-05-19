@@ -17,3 +17,58 @@ float타입에는 'f' 또는 'F', double타입에는 'd' 또는 'D'
 ex) float pi = 3.14; // Error. double 타입의 리터럴
 
 타입의 불일치
+저장범위가 넓은 타입에 좁은 타입의 값을 저장 가능
+-> 다 귀찮으면 double을 사용
+byte와 short 타입은 없으므로 int 타입을 사용
+-> short 타입 '변수'의 저장 범위 내에서만 가능
+
+문자와 문자열
+'' -> 문자 -> char
+"" -> 문자열 -> String
+
+String은 클래스 -> new 사용은 자유
+
+덧셈 연산자를 이용하여 문자열 결합 가능
+-> 어느 한쪽이 문자열이라면 나머지도 문자열로 변환되어 결합
+
+printf()
+화면 출력 기본 -> println() -> println()은 변수의 값을 그대로 출력
+-> 다른 형식으로 출력 불가능
+printf()는 지시자(specifier) 사용 -> 지시자는 값을 어떻게 출력할 것인지를 지정
+printf()는 줄바꿈 지시자 '%n'을 사용
+
+출력의 공간 지정
+-> [%5d]  // [    1]
+   [%-5d] // [1    ]
+   [%05d] // [00001]
+
+접두사
+-> "%x" // ffffffffffffffff
+   "%#x" // 0xffffffffffffffff
+   "%#X" // 0XFFFFFFFFFFFFFFFF
+
+2진 문자열 변환 메서드
+'Integer.toBinaryString(int i)'
+-> 정수를 2진수로 변환 후 문자열 반환 -> '%s' 사용
+
+형변환
+(int) c -> char 타입을 %d로 출력하기 위해서는 형변환 필요
+
+실수형
+%f -> 소수점 아래 6자리까지 출력 -> %OO.OOf로 전체 자리수와 소수점 아래 자리수를
+결정 -> 정수의 빈자리는 공백, 소수점 아래 빈자리는 0
+%e -> 지수형태로 출력
+%g -> 값을 간략하게 표현
+
+%s -> 숫자를 추가하여 공간확보 또는 일부만 출력 가능
+
+Scanner
+Scanner클래스의 객체 생성
+-> import java.util.*;
+-> Scanner scanner = new Scanner (System.in);
+-> nextLine() 메서드 호출
+-> 입력 받은 문자열을 정수로 변환하기 위해서는 Integer.parseInt() 메서드 사용
+
+nextLine -> 문자열
+nextInt -> 정수
+nextFloat -> 실수
