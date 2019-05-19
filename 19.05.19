@@ -72,3 +72,5 @@ Scanner클래스의 객체 생성
 nextLine -> 문자열
 nextInt -> 정수
 nextFloat -> 실수
+
+--------------------
