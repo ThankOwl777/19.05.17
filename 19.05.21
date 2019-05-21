@@ -52,7 +52,7 @@ public class Number {
             n = dec - m*2;
            
             s = s + 1; // 배열 인덱스 증가.
-            bin[s] = nmg;
+            bin[s] = n;
            
             dec = m;
         }while(m!=0);
