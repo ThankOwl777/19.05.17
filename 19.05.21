@@ -62,3 +62,8 @@ public class Number {
         }
     }
 }
+
+--------------------
+
+위 코드를 실행하면 'scn' is never closed. 라는 에러가 발생
+-> scn을 다 사용하고 난 뒤 scn.close();를 입력해주면 
