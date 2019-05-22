@@ -1,0 +1,23 @@
+기본형(Primitive type)
+
+논리형 - boolean
+-> boolean형 변수는 true false 둘 중 하나
+-> default는 false
+-> yes/no, on/off 등 논리구현에 사용
+-> 1bit로도 충분, but 자바 최소단위는 byte이므로 boolean의 크기는 1byte
+-> TRUE와 true는 다른 것으로 간주
+
+문자형 - char
+-> char형 변수는 단 하나의 문자만 저장
+-> 실제로 저장되는건 문자의 유니코드
+-> 'A' 말고 65도 가능 ex) char ch = 'a'; 와 char ch = 65;는 같다
+
+특수문자
+-> tab = \t
+-> backspace = \b
+-> new line = \n
+-> 유니코드 = \u유니코드
+
+char타입의 크기는 2byte = 16bit, short타입의 크기도 2byte = 16bit
+-> char타입 유니코드는 모두 양수, short타입 유니코드는 음수양수
+
