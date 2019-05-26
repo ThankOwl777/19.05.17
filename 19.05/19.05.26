@@ -58,3 +58,9 @@
 -> 대소문자 구별없이 비교할 때는 equalsIgnoreCase()를 사용
 
 --------------------
+
+String str = new String("abc");
+String str = "abc";
+
+-> String만 new를 사용하지 않고, 간단히 쓸 수 있게 허용
+
