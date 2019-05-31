@@ -1,1 +1,55 @@
+String 배열
+
+선언과 생성
+-> int배열의 선언과 생성방법과 동일
+-> String[] 변수이름 = new String[길이];
+-> 참조형 변수의 기본값은 null이므로 각 요소의 값은 null로 초기화
+
+초기화
+-> int배열과 동일한 방법
+-> 각 요소에 지정 또는 {}를 사용
+
+-> String클래스만 ""로 간략히 표현하는 것이 허용
+-> String은 클래스이므로 new연산자를 통해 객체를 생성하는 것이 원칙
+
+-> 참조형 배열의 경우 실제 객체가 아닌 객체 주소가 저장
+
+--------------------
+
+char배열과 String클래스
+-> 문자열은 '문자를 연이어 늘어놓은 것'을 의미하므로 문자배열인 char배열과 같은 뜻
+-> String클래스가 char배열에 여러 가지 기능(메서드)을 추가한 것
+
+-> String객체(문자열)은 읽을 수만 있을 뿐 내용 변경 불가
+
+String클래스의 주요 메서드
+-> char charAt(int index) : 문자열에서 index에 있는 문자를 반환
+-> int length() : 문자열의 길이를 반환
+-> String substring(int from, int to) : 문자열에서 from ~ to에 있는 문자열을 반환(to는 미포함)
+-> boolean equals(String str) : 문자열의 내용이 같은지 확인. 같으면 true, 다르면 false
+-> char[] toCharArray() : 문자열을 문자배열(char[])로 변환해서 반환
+
+--------------------
+
+커맨드 라인을 통해 입력받기
+-> nextLing()외에 사용자로부터 값을 입력받는 방법
+
+-> c:\jdk1.8\work\test>java Test abc 123
+-> String배열에 담겨서 Test클래스의 main메서드의 매개변수에 전달
+-> 커맨드라인에 입력된 매개변수는 공백이 있는 경우 ""로 감싸 처리
+-> 숫자를 입력해도 숫자가 아닌 문자열로 처리
+
+--------------------
+
+변수의 타입에 따른 기본값
+-> boolean : false
+-> char : '\u0000'
+-> byte, short, int : 0
+-> long : 0L
+-> float : 0.0f
+-> double : 0.0d 또는 0.0
+-> 참조형 변수 : null
+
+--------------------
+
 
