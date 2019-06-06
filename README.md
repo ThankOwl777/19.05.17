@@ -19,4 +19,19 @@
 반성의 3단계
 1. 올바르게 했는가
 2. 다르게 할 수 있는가
-3. 풀이와 결과를 다른 문제에도 적용할 수 
+3. 풀이와 결과를 다른 문제에도 적용할 수 있는가
+
+--------------------
+
+It's about organizing mine studies by myself.
+
+It can be helpful or unhelpful to read.
+
+This is something that may or may not help the concept.
+
+It may not help you improve your coding skills.
+
+It might be uploaded one by one a day.
+
+--------------------
+
