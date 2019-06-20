@@ -21,5 +21,44 @@
    } catch (IOException ie) {
       ie.printStackTrace();
    } finally {
-      dis.close();
+      try {
+         if(dis != null)
+            dis.close();
+      } catch (IOException ie) {
+         ie.printStackTrace();
+      }
    }
+-> finally블록에 try-catch문을 추가하여 close()에서 발생할 수 있는 예외를 처리
+-> 코드가 복잡해지고 try블럭과 finally블럭에서 모두 예외가 발생하면, try블럭의 예외가 무시됨
+
+-> 이를 개선하기 위해 try-with-resources문이 추가됨
+-> try (FileInputStream fis = new FileInputStream("score.dat"); DataInputStream dis = new DataInputStream(fis)) {
+      while(true) {
+         score = dis.readInt();
+         System.out.println(score);
+         sum += score;
+      }
+   } catch (EOFException e) {
+      System.out.println("점수 총합 : " + sum);
+   } catch (IOException ie) {
+      ie.printStackTrace();
+   }
+-> try-with-resources문의 괄호()안에 객체를 생성하는 문장을 입력
+-> 따로 close()를 호출하지 않아도 try블럭을 벗어나는 순간 자동으로 호출
+
+-> 자동으로 객체의 close()가 호출될려면 클래스가 AutoCloseable이라는 인터페이스를 구현한 것이어야 함
+-> public interface AutoCloseable {
+      void close() throws Exception;
+   }
+
+--------------------
+
+Throwable에 정의된 억제된 예외와 관련된 메서드
+-> void addSuppressed(Throwable exception) 억제된 예외를 추가
+-> Throwable[] getSuppressed() 억제된 예외(배열)을 반환
+
+--------------------
+
+사용자정의 예외 만들기
+-> 필요에 따라 새로운 예외 클래스를 정의하여 사용할 수 있음
+-> 보통 Exception클래스로부터 상속받는 클래스를 만듬
