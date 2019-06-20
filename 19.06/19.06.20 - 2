@@ -75,6 +75,17 @@ ex) class Exception {
           System.out.println("프로그램이 정상 종료되었음.");
        }
     }
--> 
+-> Exception인스턴스를 생성할 때, 생성자에 String을 추가
+-> String이 Exception인스턴스에 메시지로 저장
+-> getMessage()를 이용해서 이 메시지를 얻을 수 있음
+
+-> Exception클래스들(Exception클래스와 자손들)이 예외를 처리해주지 않으면 컴파일이 되지 않음
+-> RuntimeException클래스들에 해당하는 예외는 예외처리를 강제하지 않음
+-> 예외처리를 확인하는 Exception클래스들은 'checked예외'
+-> 예외처리를 확인하지 않는 RuntimeException클래스들은 'unchecked예외'
+
+--------------------
+
+
           
              
