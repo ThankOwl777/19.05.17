@@ -62,3 +62,37 @@ Throwable에 정의된 억제된 예외와 관련된 메서드
 사용자정의 예외 만들기
 -> 필요에 따라 새로운 예외 클래스를 정의하여 사용할 수 있음
 -> 보통 Exception클래스로부터 상속받는 클래스를 만듬
+
+ex) class MyException extends Exception {
+       MyException(String msg) {
+          super(msg);
+       }
+    }
+-> Exception클래스로부터 상속받아 MyException클래스를 만듦
+-> Exception클래스는 생성 시 String값을 받아 메시지로 저장할 수 있음
+
+ex) class MyException extends Exception {
+       private final int ERR_CODE;
+       
+       MyException(String msg, int errCode) {
+          super(msg);
+          ERR_CODE = errCode;
+       }
+       
+       MyException(String msg) {
+          this(msg, 100);
+       }
+       
+       public int getErrCode() {
+          return ERR_CODE;
+       }  
+    }
+-> 에러코드 값을 저장할 수 있는 ERR_CODE와 getErrCode()를 추가
+-> catch블럭에서 getMessage()와 getErrCode()를 사용해서 에러코드와 메시지를 모두 얻을 수 있음
+
+-> 기존 예외 클래스는 주로 Exception을 상속받아 'checked예외'로 작성
+-> 최근에는 선택적으로 할 수 있도록 RuntimeException을 상속받아 작성하는 추세
+-> 'checked예외'는 예외처리가 강제되기 때문
+
+--------------------
+
