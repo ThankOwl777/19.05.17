@@ -1,0 +1,25 @@
+자동 자원 반환 try-with-resources문
+-> JDK1.7부터 try-with-resources문이라는 변형이 새로 추가
+
+-> try {
+      fis = new fileInputStream("score.dat");
+      dis = new DataInputStream(fis);
+      ...
+   } catch (IOException ie) {
+      ie.printStackTrace();
+   } finally {
+      dis.close();
+   }
+-> DataInputStream을 사용해서 파일로부터 데이터를 읽는 코드
+-> 데이터를 읽는 중 예외가 발생하더라도 DataInputStream이 닫히도록 finally 안에 close() 입력
+-> close()가 예외를 발생시킬 수도 있음
+
+-> try {
+      fis = new fileInputStream("score.dat");
+      dis = new DataInputStream(fis);
+      ...
+   } catch (IOException ie) {
+      ie.printStackTrace();
+   } finally {
+      dis.close();
+   }
