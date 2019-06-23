@@ -1,5 +1,5 @@
 String클래스의 생성자와 메서드
-----------------
+--------------------
 -> String(String s) : 주어진 문자열 s를 갖는 String인스턴스를 생성
   ex) String s = new String("Hello");
 -> String(char[] value) : 주어진 문자열 value를 갖는 String인스턴스를 생성
@@ -116,5 +116,5 @@ String클래스의 생성자와 메서드
       java.util.Date dmy = new java.util.Date();
       String Date = String.valueOf(dmy);
 
-----------------
+--------------------
 
