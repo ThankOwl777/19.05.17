@@ -46,3 +46,29 @@ ex) import java.util.StringJoiner;
 -> 문자 '가'는 UTF-8로 '0xEAB080', CP949로 '0xB0A1'
 
 --------------------
+
+String.format()
+-> format()은 형식화된 문자열을 만들어내는 간단한 방법
+-> printf()와 사용법이 같음
+-> String str = String.format("%d 더하기 %d는 %d입니다.", 1, 2, 1+2);
+   System.out.println(str);
+   
+--------------------
+
+기본형 값을 String으로 변환
+-> 숫자에 빈 문자열"" 을 더해주면 됨
+-> 성능은 valueOf()가 더 좋지만, 빈 문자열이 간단하고 편하기 때문에 성능향상이 필요한 경우에만 valueOf()를 쓰자
+ex) int i = 10;
+    String str1 = i + "";
+    String str2 = String.valueOf(i);
+
+--------------------
+
+String을 기본형 값으로 변환
+-> valueOf()를 쓰거나 parseInt()를 사용
+-> 원래 valueOf()의 반환 타입은 int가 아니라 Integer
+-> valueOf(String s)는 메서드 내부에서 parseInt(String s)를 호출
+-> 두 메서드는 반환 타입만 다르고 같은 메서드임
+
+--------------------
+
