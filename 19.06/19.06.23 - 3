@@ -1,1 +1,48 @@
+join()과 StringJoiner
+-> join()은 여러 문자열 사이에 구분자를 넣어서 결합
+-> 구분자로 문자열을 자르는 split()과 반대의 작업
 
+-> java.util.StringJoiner클래스를 사용해서 문자열을 결합
+-> StringJoiner sj = new StringJoiner(",", "[", "]");
+
+--------------------
+
+유니코드의 보충문자
+-> 유니코드는 원래 2byte, 즉 16비트 문자체계인데, 부족하여 20비트로 확장
+-> 확장에 의해 추가된 문자들을 '보충 문자(supplementary characters)'라고 함
+-> 매개변수가 'int ch'인 것들은 보충문자를 지원
+-> 매개변수가 'char ch'인 것들은 지원하지 않음
+
+--------------------
+
+문자 인코딩 변환
+-> getBytes(String charsetName)를 사용하면, 문자열의 문자 인코딩을 다른 인코딩으로 변경할 수 있음
+-> 자바가 UTF-16을 사용하지만, 문자열 리터럴에 포함되는 문자들은 OS인코딩을 사용함
+ex) import java.util.StringJoiner;
+
+    class String {
+       public static void main(String[] args) throws Exception {
+          String str = "가";
+          
+          byte[] bArr1 = str.getByte("UTF-8");
+          byte[] bArr2 = str.getByte("CP949");
+
+          System.out.println("UTF-8:" + joinByteArr(bArr1));
+          System.out.println("CP949:" + joinByteArr(bArr2));
+          
+          System.out.println("UTF-8:" + new String(bArr1, "UTF-8"));
+          System.out.println("CP949:" + new String(bArr2, "CP949"));
+       }
+       
+       static String joinByteArr(byte[] bArr) {
+          StringJoiner sj = new StringJoiner(":", "[", "]");
+          
+          for (byte b : bArr)
+             sj.add(String.format("%02X", b));
+          return sj.toString();
+       }
+    }
+-> UTF-8은 한글 한 글자를 3byte로 표현, CP949는 2byte로 표현
+-> 문자 '가'는 UTF-8로 '0xEAB080', CP949로 '0xB0A1'
+
+--------------------
