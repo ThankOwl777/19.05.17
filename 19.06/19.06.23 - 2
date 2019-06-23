@@ -1,4 +1,3 @@
-
 String클래스의 생성자와 메서드
 -> String(String s) : 주어진 문자열 s를 갖는 String인스턴스를 생성
   ex) String s = new String("Hello");
@@ -65,4 +64,56 @@ String클래스의 생성자와 메서드
 -> String replace(char old, char new) : 문자열 중의 문자(old)를 새로운 문자(new)로 바꾼 문자열을 반환함
   ex) String s = "Hello";
       String s1 = s.replace('H', 'C');
-->
+-> String replace(CharSequence old, CharSequence new) : 문자열 중의 문자열(old)를 새로운 문자열(new)로 바꾼 문자열을 반환함
+  ex) String s = "HelloHello";
+      String s1 = s.replace("ll", "LL");
+-> String replaceAll(String regex, String replacement) : 문자열 중의 지정된 문자열과 일치하는 것을 새로운 문자열로 모두 변경함
+  ex) String ab = "AABBAABB";
+      String r = ab.replaceAll("BB", "bb");
+-> String replaceFirst(String regex, String replacement) : 일치하는 것 중, 첫 번째 것만 새로운 문자열로 변경함
+  ex) String ab = "AABBAABB";
+      String r = ab.replaceFirst("BB", "bb");
+-> String[] split(String regex) : 문자열을 지정된 분리자(regex)로 나누어 문자열 배열에 담아 반환함
+  ex) String animals = "dog, cat, alpaca";
+      String[] arr = animals.split(", ");
+-> String[] split(String regex, int limit) : 문자열배열에 담아 반환하되, 지정된 수로 자름
+  ex) String animals = "dog, cat, alpaca";
+      String[] arr = animals.split(", ", 2);
+-> boolean startsWith(String prefix) : 주어진 문자열(prefix)로 시작하는지 검사
+  ex) String s = "java.lang.Object";
+      boolean b1 = s.startWith("java");
+      boolean b2 = s.startWith("lang");
+-> String substring(int begin), String substring(int begin, int end) : begin부터 end 범위에 포함된 문자열을 얻음. end위치의 문자는 미포함
+  ex) String s = "java.lang.Object";
+      String c = s.substring(10);
+      String p = s.substring(5, 9);
+-> String toLowerCase() : 인스턴스에 저장되어있는 모든 문자열을 소문자로 변환하여 반환함
+  ex) String s = "Hello";
+      String s1 = s.toLowerCase();
+-> String toString() : 인스턴스에 저장되어 있는 문자열을 반환
+  ex) String s = "Hello";
+      String s1 = s.toString();
+-> String toUpperCase() : 인스턴스에 저장되어있는 모든 문자열을 대문자로 변환하여 반환함
+  ex) String s = "Hello";
+      String s1 = s.toUpperCase();
+-> String trim() : 문자열 왼쪽 끝과 오른쪽 끝의 공백을 없앤 결과를 반환. 중간의 공백은 제거되지 않음
+  ex) String s = " Hello World ";
+      String s1 = s.trim();
+-> static String valueOf(boolean b)
+   static String valueOf(char c)
+   static String valueOf(int i)
+   static String valueOf(long l)    : 지정된 값을 문자열로 변환하여 반환. 참조변수의 경우, toString()을 호출한 결과를 반환
+   static String valueOf(float f)
+   static String valueOf(double d)
+   static String valueOf(Object o)
+  ex) String b = String.valueOf(true);
+      String c = String.valueOf('a');
+      String i = String.valueOf(100);
+      String l = String.valueOf(100L);
+      String f = String.valueOf(10f);
+      String d = String.valueOf(10.0);
+      java.util.Date dmy = new java.util.Date();
+      String Date = String.valueOf(dmy);
+
+----------------
+
