@@ -20,4 +20,123 @@ String클래스
 
 문자열 비교
 -> 문자열 리터럴을 지정하는 방법과 String클래스의 생성자를 사용해서 만드는 방법
--> String str = "abc";
+-> String str1 = "abc";   // 문자열 리터럴 "abc"의 주소가 str1에 저장
+-> String str2 = "abc";   // 문자열 리터럴 "abc"의 주소가 str2에 저장
+-> String str3 = new String("abc");   // 새로운 String인스턴스를 생성
+-> String str4 = new String("abc");   // 새로운 String인스턴스를 생성
+-> 문자열 리터럴은 이미 존재하는 것을 재사용함
+-> str1 == str2
+   0x100 == 0x100
+   true
+-> String인스턴스는 new연산자에 의해서 메모리 할당이 이루어지기 때문에 새로운 인스턴스가 생성됨
+-> str3 == str4
+   0x200 == 0x300
+   false
+
+-> equals()를 사용해 비교하면 내용을 비교하기 때문에 true
+-> String인스턴스의 주소를 비교했을 때는 false
+
+--------------------
+
+문자열 리터럴
+-> 자바 소스파일에 포함된 모든 문자열 리터럴은 컴파일 시에 클래스 파일에 저장됨
+-> 같은 내용의 문자열 리터럴은 한번만 저장
+-> 문자열 리터럴도 String인스턴스이고, 한번 생성하면 내용을 변경할 수 없음
+-> 따라서 하나의 인스턴스를 공유하면 되기 때문
+
+-> 클래스 파일에는 소스파일에 포함된 모든 리터럴의 목록이 있음
+-> 클래스 로더에 의해 메모리에 올라갈 때, 목록에 있는 리터럴들이 JVM내에 있는 '상수 저장소(constant pool)'에 저장됨
+-> 이 때 문자열 리터럴이 자동적으로 생성되어 저장됨
+
+--------------------
+
+빈 문자열(empty string)
+-> 길이가 0인 배열이 존재할 수 있다? Yes
+-> char형 배열도 길이가 0인 배열을 생성할 수 있음
+-> 이 배열을 내부적으로 가지고 있는 문자열이 '빈 문자열'
+-> String s = "";
+-> 참조변수 s가 참조하고 있는 String인스턴스는 내부에 'new char[0]'과 같이 길이가 0인 char형 배열을 저장하고 있음
+-> 'String s = "";'이 가능하다고 'char c = "";'이 가능한 것은 아님
+-> char형 변수에는 반드시 하나의 문자를 지정해야함
+
+-> 일반적으로 변수를 선언할 때 각 타입의 기본값으로 초기화
+-> String은 참조형 타입의 기본값인 null보다는 빈 문자열
+-> char형은 기본값인 '\u0000' 대신 공백으로 초기화
+
+ex) class String {
+       public static void main(String[] args) {
+          char[] cArr = new char[0];
+          String s = new String(cArr);
+          
+          System.out.println("cArr.length = " + cArr.length);
+          System.out.println("@@@" + s + "@@@");
+       }
+    }
+-> 길이가 0인 배열을 생성하여 char형 배열 참조변수 cArr를 초기화
+-> 길이가 0인 배열이 생성되며 생성된 배열의 주소값이 참조변수 cArr에 저장됨
+
+----------------
+
+String클래스의 생성자와 메서드
+-> String(String s) : 주어진 문자열 s를 갖는 String인스턴스를 생성
+  ex) String s = new String("Hello");
+-> String(char[] value) : 주어진 문자열 value를 갖는 String인스턴스를 생성
+  ex) char[] c = {'H', 'e', 'l', 'l', 'o'};
+      String s = new String(c);
+-> String(StringBuffer buf) : StringBuffer인스턴스가 갖고 있는 문자열과 같은 내용의 String인스턴스를 생성
+  ex) StringBuffer sb = new StringBuffer("Hello");
+      String s = new String(sb);
+-> char charAt(int index) : 지정된 위치(index)에 있는 문자를 알려줌. index는 0부터 시작
+  ex) String s = "Hello";
+      String n = "012345";
+      char c1 = s.charAt(1);
+      char c2 = n.charAt(1);
+-> int compareTo(String str) : 문자열과 사전순서로 비교. 같으면 0, 이전이면 음수, 이후면 양수를 반환
+  ex) int i1 = "aaa".compareTo("aaa");
+      int i2 = "aaa".compareTo("bbb");
+      int i3 = "bbb".compareTo("aaa");
+-> String concat(String str) : 문자열을 뒤에 덧붙임
+  ex) String s1 = "Hello";
+      String s2 = s1.concat(" World");
+-> boolean contains(CharSequence s) : 지정된 문자열이 포함되었는지 검사
+  ex) String s = "abcdefg";
+      boolean b = s.contains("bc")
+-> boolean endsWith(String suffix) : 지정된 문자열로 끝나는지 검사
+  ex) String file = "Hello.txt"
+      boolean b = file.endsWith(txt)
+-> boolean equals(Object obj) : 매개변수로 받은 문자열과 String인스턴스의 문자열을 비교. 아니거나 다르면 false를 반환
+  ex) String s = "Hello";
+      boolean b1 = s.equals("Hello");
+      boolean b2 = s.equals("hello");
+-> boolean equalsIgnoreCase(String str) : 문자열과 String인스턴스의 문자열을 대소문자 구분없이 비교
+  ex) String s = "Hello";
+      boolean b1 = s.equalsIgnoreCase("HELLO");
+      boolean b2 = s.equalsIgnoreCase("heLLo");
+-> int indexOf(int ch) : 주어진 문자가 문자열에 존재하는지 확인하여 위치를 알려줌. 못 찾으면 -1을 반환
+  ex) String s = "Hello";
+      int idx1 = s.indexOf('o');
+      int idx2 = s.indexOf('n');
+-> int indexOf(int ch, int pos) : 주어진 문자가 문자열에 존재하는지 지정된 위치부터 확인하여 위치를 알려줌. 못 찾으면 -1을 반환
+  ex) String s = "Hello";
+      int idx1 = s.indexOf('e', 0);
+      int idx2 = s.indexOf('e', 2);
+-> int indexOf(String str) : 주어진 문자열이 존재하는지 확인하여 위치를 알려줌. 없으면 -1을 반환
+  ex) String s = "ABCDEFG";
+      int idx = s.indexOf("CD");
+-> String intern() : 문자열을 상수풀에 등록. 같은 내용의 문자열이 있을 경우 주소값을 반환
+  ex) String s1 = new String("abc");
+      String s2 = new String("abc");
+      boolean b1 = (s1 == s2);
+      boolean b2 = s1.equals(s2);
+      boolean b3 = (s1.intern() == s2.intern());
+-> int lastIndexOf(int ch) : 지정된 문자 또는 문자코드를 문자열의 오른쪽 끝에서부터 찾아서 위치를 알려줌. 못 찾으면 -1을 반환
+  ex) String s = "java.lang.Object";
+      int idx1 = s.lastIndexOf('.');
+      int idx2 = s.indexOf('.');
+-> int lastIndexOf(String str) : 지정된 문자열을 인스턴스의 문자열 끝에서부터 찾아서 위치를 알려줌. 못 찾으면 -1을 반환
+  ex) String s = "java.lang.java";
+      int idx1 = s.lastIndexOf("java");
+      int idx2 = s.indexOf("java");
+-> int length() : 문자열의 길이를 알려줌
+  ex) String s = "Hello";
+      int length = s.length();
