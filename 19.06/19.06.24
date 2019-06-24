@@ -72,4 +72,53 @@ Math클래스의 메서드
   => d  =  10.0
      d2 = -11.0
      
--> 
+-> static double max(double a, double b)
+   static float max(float a, float b)     : 주어진 두 값을 비교하여 큰 쪽을 반환함
+   static int max(int a, int b)
+   static long max(long a, long b)
+  ex) double d = Math.max(8.5, 8.50001);
+      int    i = Math.max(0, -1);
+  => d = 8.50001
+     i = 0
+     
+
+-> static double min(double a, double b)
+   static float min(float a, float b)     : 주어진 두 값을 비교하여 작은 쪽을 반환함
+   static int min(int a, int b)
+   static long min(long a, long b)
+  ex) double d = Math.min(8.5, 8.50001);
+      int    i = Math.min(0, -1);
+  => d = 8.5
+     i = -1
+     
+-> static double random() : 0.0 ~ 1.0 범위의 임의의 double값을 반환함. 1.0은 범위에 포함하지 않음.
+  ex) double d = Math.random();
+      int i = (int)(Math.random() * 10)+1
+      
+-> static double rint(double a) : 주어진 double값과 가장 가까운 정수값을 double형으로 반환함
+  ex) double d  = Math.rint(5.5);
+      double d2 = Math.rint(5.1);
+      double d3 = Math.rint(-5.5);
+      double d4 = Math.rint(-5.1);
+  => d  =  6.0
+     d2 =  5.0
+     d3 = -6.0
+     d4 = -5.0
+     
+-> static long round(double a) : 소수점 첫째자리에서 반올림한 정수값(long)을 반환함. 매개변수의 값이 음수인 경우,
+   static long round(float a)    round()와 rint()의 결과가 다르다는 것에 주의
+  ex) long l  = Math.round(5.5);
+      long l2 = Math.round(5.1);
+      long l3 = Math.round(-5.5);
+      long l4 = Math.round(-5.1);
+      double d  = 50.7552;
+      double d2 = Math.round(d * 100)/100.0;
+  => l  =  6
+     l2 =  5
+     l3 = -5
+     l4 = -5
+     d  = 50.7552
+     d2 = 50.76
+     
+--------------------
+
