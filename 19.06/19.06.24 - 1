@@ -81,7 +81,6 @@ Math클래스의 메서드
   => d = 8.50001
      i = 0
      
-
 -> static double min(double a, double b)
    static float min(float a, float b)     : 주어진 두 값을 비교하여 작은 쪽을 반환함
    static int min(int a, int b)
