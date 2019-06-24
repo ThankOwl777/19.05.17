@@ -1,0 +1,97 @@
+래퍼(wrapper) 클래스
+-> 객체지향 개념에서 모든 것은 객체로 다루어져야 함
+-> 자바에서는 8개의 기본형을 객체로 다루지 않음
+
+-> 기본형(primitive type) 변수도 어쩔 수 없이 객체로 다뤄야 하는 경우
+-> 매개변수로 객체를 요구할 때, 기본형 값이 아닌 객체로 저장해야할 때, 객체간의 비교가 필요할 때 등등
+
+-> 이 때 사용되는 것이 래퍼(wrapper)클래스
+-> 8개의 기본형을 대표하는 8개의 래퍼클래스가 있음
+
+-> 래퍼 클래스의 생성자는 매개변수로 문자열이나 각 자료형의 값들을 인자로 받음
+-> 생성자의 매개변수로 문자열을 제공할 때, 자료형에 알맞은 문자열을 사용해야함
+
+-> int형 래퍼 클래스인 Integer클래스
+-> public final class Integer extends Number implements Comparable {
+      ...
+      private int value;
+      ...
+   }
+
+-> 래퍼클래스들은 모두 equals()가 오버라이딩되어 있어서 주소값이 아닌 객체가 가지고 있는 값을 비교
+-> 오토박싱이 된다고 해도 Integer객체에 비교연산자를 사용할 수 없음
+-> 대신 compareTo()를 제공함
+
+--------------------
+
+래퍼클래스의 생성자
+-> 기본형 | 래퍼클래스 | 생성자
+-> boolean | Boolean | Boolean(boolean value)
+                     | Boolean(String s)
+  ex) Boolean b = new Boolean(true);
+      Boolean b2 = new Boolean("true");
+      
+-> char | Character | Character(char value)
+  ex) Character c = new Character('a');
+  
+-> byte | Byte | Byte(byte value)
+               | Byte(String s)
+  ex) Byte b = new Byte(10);
+      Byte b2 = new Byte("10");
+      
+-> short | Short | Short(short value)
+                 | Short(String s)
+  ex) Short s = new Short(10);
+      Short s2 = new Short("10");
+      
+-> int | Integer | Integer(int value)
+                 | Integer(String s)
+  ex) Integer i = new Integer(100);
+      Integer i2 = new Integer("100");
+      
+-> long | Long | Long(long value)
+               | Long(String s)
+  ex) Long l = new Long(100);
+      Long l2 = new Long("100");
+      
+-> float | Float | Float(doube value)
+                 | Float(float value)
+                 | Float(String s)
+  ex) Float f = new Float(1.0);
+      Float f2 = new Float(1.0f);
+      Float f3 = new Float("1.0f");
+      
+-> double | Double | Double(double value)
+                   | Double(String s)
+  ex) Double d = new Double(1.0);
+      Double d2 = new Double("1.0");
+      
+--------------------
+
+Number클래스
+-> 이 클래스는 추상클래스로 내부적으로 숫자를 멤버변수로 갖는 래퍼 클래스들의 조상
+-> 기본형 중에서 숫자와 관련된 래퍼 클래스들은 모두 Number클래스의 자손
+
+-> BigInteger와 BigDecimal 등의 자손클래스가 있음
+-> BigInteger는 long으로도 다룰 수 없는 큰 범위의 정수를 처리
+-> BigDecimal은 double로도 다룰 수 없는 큰 범위의 부동 소수점수를 처리
+-> 연산자 역할을 대신하는 다양한 메서드를 제공함
+
+-> public abstract class Number implements java.io.Serializable {
+      public abstract int     intValue();
+      public abstract long    longValue();
+      public abstract float   floatValue();
+      public abstract double  doubleValue();
+      
+      public byte byteValue() {
+         return (byte)intValue();
+      }
+      
+      public short shortValue() {
+         return (short)intValue();
+      }
+   }
+-> 객체가 가지고 있는 값을 숫자와 관련된 기본형으로 변환하여 반환하는 메서드들을 정의하고 있음
+
+--------------------
+
