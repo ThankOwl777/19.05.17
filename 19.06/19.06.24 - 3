@@ -1,1 +1,44 @@
+문자열을 숫자로 변환하기
+-> 다음과 같은 방법 중 하나를 사용
+-> int i  = new Integer("100").intValue(); // floatValue(), longValue(), ...
+-> int i2 = Integer.parseInt("100");       // 주로 이 방법을 사용
+-> int i3 = Integer.valueOf("100");
 
+-> 문자열 => 기본형
+-> byte b = Byte.parseByte("100");
+   short s = Short.parseShort("100");
+   int i = Integer.parseInt("100");
+   long l = Long.parseLong("100");
+   float f = Float.parseFloat("3.14");
+   double d = Double.parseDouble("3.14");
+
+-> 문자열 => 래퍼 클래스
+-> Byte b = Byte.valueOf("100");
+   Short s = Short.valueOf("100");
+   Integer i = Integer..valueOf("100");
+   Long l = Long.valueOf("100");
+   Float f = Float.valueOf("3.14");
+   Double d = Double.valueOf("3.14");
+
+-> 문자열이 10진수가 아닌 다른 진법(radix)의 숫자일 때도 변환이 가능하도록 메서드를 제공
+-> static int parseInt(String s, int radix) // 문자열 s를 radix진법으로 인식
+   static Integer valueOf(String s, int radix)
+   
+--------------------
+
+오토박싱 & 언박싱(autoboxing & unboxing)
+-> JDK1.5이전에는 기본형과 참조형 간의 연산이 불가능
+-> 래퍼 클래스로 기본형을 객체로 만들어서 연산해야함
+
+-> 컴파일러가 자동으로 변환하는 코드를 넣어주게 바뀜
+-> 내부적으로 객체 배열을 가지고 있는 Vector클래스나 ArrayList클래스에 기본형 값을 저장할 때나 형변환이 필요할 때
+-> 기본형 값을 래퍼 클래스의 객체로 자동 변환해주는 것을 '오토박싱(autoboxing)'
+-> 반대로 변환하는 것을 '언박싱(unboxing)'
+
+-> 이 기능은 컴파일러가 제공하는 기능일 뿐 자바의 원칙이 바뀐것은 아님
+
+--------------------
+
+
+
+  
