@@ -54,3 +54,34 @@ Random클래스의 생성자와 메서드
 --------------------
 
 java.util.Scanner클래스
+-> Scanner는 화면, 파일, 문자열과 같은 입력소스로부터 문자데이터를 읽어오는데 도움을 줄 목적으로 JDK1.5부터 추가됨
+-> 다음과 같은 생성자를 지원함
+-> Scanner(String source)
+   Scanner(File source)
+   Scanner(InputStream source)
+   Scanner(Readable source)
+   Scanner(ReadableByteChannel source)
+   Scanner(Path source) // 1.7부터 추가
+   
+-> 정규식 표현(Regular expression)을 이용한 라인단위의 검색을 지원함
+-> 구분자(delimiter)에도 정규식 표현을 사용할 수 있어서 복잡한 형태의 구분자도 처리 가능
+-> Scanner useDelimiter(Pattern pattern)
+   Scanner useDelimiter(String pattern)
+   
+--------------------
+
+// JDK1.5 이전
+-> BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+   
+   String input = br.readLine();
+   
+// JDK1.5이후(java.util.Scanner)
+-> Scanner s = new Scanner(System.in);
+   String input = s.nextLine();
+   
+// JDK1.6이후(java.io.Console) - 이클립스에서 동작 안 함
+-> Console console = System.console();
+   String input = console.readLine();
+
+--------------------
+
